@@ -1,5 +1,7 @@
 var net = require('net');
 
+process.stdin.setEncoding('utf8');
+
 var client = net.createConnection({
   port: 5674
 }, function() {
@@ -12,7 +14,7 @@ var client = net.createConnection({
 });
 
 client.on('data', function(data) {
-
+  process.stdout.write(data);
 });
 
 client.on('end', function(data) {
