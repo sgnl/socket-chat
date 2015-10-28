@@ -2,11 +2,20 @@ var net = require('net');
 
 process.stdin.setEncoding('utf8');
 
+var pool = [];
+
 var server = net.createServer(function(connection) {
   console.log('client connected.');
 
+  pool.push(connection);
+  // console.log(connection);
+
   connection.on('data', function(buffer) {
-    console.log(buffer.toString().trim());
+    pool.forEach(function(socket) {
+      if (socket !== connection) {
+        socket.write(buffer);
+      }
+    });
   });
 });
 
