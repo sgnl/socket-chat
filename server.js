@@ -1,4 +1,5 @@
 var net = require('net');
+var commander = require('./lib/commander');
 var CONFIG = require('./config.json');
 
 process.stdin.setEncoding('utf8');
