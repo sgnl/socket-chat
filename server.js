@@ -6,7 +6,7 @@ var server = net.createServer(function(connection) {
   console.log('client connected.');
 
   connection.on('data', function(buffer) {
-    console.log('inc');
+    console.log(buffer.toString().trim());
   });
 });
 

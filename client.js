@@ -5,6 +5,9 @@ var client = net.createConnection({
 }, function() {
   console.log('connection established');
 
+  process.stdin.on('data', function(buffer) {
+    client.write(buffer);
+  });
 
 });
 
