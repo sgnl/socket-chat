@@ -41,7 +41,7 @@ function broadcast (origin, data, pool) {
   pool.forEach(function(socket) {
     if (socket !== origin) {
       console.log(socket.username);
-      socket.write(data);
+      socket.write(origin.username + ': ' + data.toString());
     }
   });
 }

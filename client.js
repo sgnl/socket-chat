@@ -19,17 +19,18 @@ createConnection(process);
 function createConnection(process) {
   var client = net.createConnection(CONFIG, function() {
 
-    console.log('connection established as ' + username);
+    process.stdout.write('connection established as ' + username + '\n\r' + username + ': ');
 
     client.write('!u ' + username);
 
     process.stdin.on('data', function(buffer) {
       client.write(buffer);
+      process.stdout.write('\r' + username + ': ');
     });
   });
 
   client.on('data', function(data) {
-    process.stdout.write(data);
+    process.stdout.write('\r' + data.toString().trim() + '\n\r' + username + ': ');
   });
 
   client.on('end', function(data) {
