@@ -1,4 +1,5 @@
 var net = require('net');
+var CONFIG = require('./config.json');
 
 process.stdin.setEncoding('utf8');
 
@@ -23,6 +24,6 @@ process.stdin.on('data', function() {
 
 });
 
-server.listen(5674, function() {
+server.listen(CONFIG.port, function() {
   console.log('server started.');
 });

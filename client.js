@@ -1,10 +1,9 @@
 var net = require('net');
+var CONFIG = require('./config.json');
 
 process.stdin.setEncoding('utf8');
 
-var client = net.createConnection({
-  port: 5674
-}, function() {
+var client = net.createConnection(CONFIG, function() {
   console.log('connection established');
 
   process.stdin.on('data', function(buffer) {
