@@ -1,0 +1,23 @@
+{
+  "name": "socket_chat_server",
+  "version": "0.0.1",
+  "description": "built live on livecoding.tv/sgnl",
+  "main": "client.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sgnl/socket-chat.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sgnl/socket-chat/issues"
+  },
+  "homepage": "https://github.com/sgnl/socket-chat#readme",
+  "dependencies": {
+    "yargs": "^3.29.0"
+  }
+}
