@@ -35,3 +35,12 @@ process.stdin.on('data', function() {
 server.listen(CONFIG.port, function() {
   console.log('server started.');
 });
+
+function broadcast (origin, data, pool) {
+  pool.forEach(function(socket) {
+    if (socket !== origin) {
+      console.log(socket.username);
+      socket.write(data);
+    }
+  });
+}
